@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 
 const FormSchema = new mongoose.Schema({
-  formId: {
+  service: [
+    {
+      amount: { type: String, required: true },
+      service: { type: String, required: true },
+    },
+  ],
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'form', 
+    ref: "form",
   },
-  amount: {
-    type: String,
-  },
-  service: {
-    type: String,
-    required: true,
-  },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "form" },
 });
 
 FormSchema.set("toJSON", {

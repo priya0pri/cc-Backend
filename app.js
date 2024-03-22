@@ -6,6 +6,8 @@ const serviceRoute = require("./routes/api/service");
 const userRoute = require("./routes/api/user");
 const messageRouter = require("./routes/api/message");
 const twilioRoute = require("./routes/api/twilio");
+const expertRoute = require("./routes/api/expert");
+const authrouter = require("./routes/api/auth");
 
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -30,6 +32,8 @@ app.use("/api", serviceRoute);
 app.use("/", userRoute);
 app.use("/", messageRouter);
 app.use("/", twilioRoute);
+app.use("/", expertRoute);
+app.use("/", authrouter);
 
 // Connect Database
 connectDB();
